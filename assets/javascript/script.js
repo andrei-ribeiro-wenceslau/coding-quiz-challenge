@@ -1,7 +1,14 @@
 var quizQuestions = document.getElementById("quiz-questions");
 var timer = document.getElementById("timer");
-var btnStart = document.getElementById("btn-start");
+var btnStart = document.getElementById("btnStart");
 var timecounter = document.getElementById("timecounter");
+
+var nextQuestions 
+var score = 0;
+var time = 75;
+var currentindex = 0;
+var allScores = [];
+var storedScores = JSON.parse(localStorage.getItem("userData"));
 
 
 var questions = [
@@ -34,10 +41,23 @@ var questions = [
 
 btnStart.addEventListener("click", startGame);
 
+function startGame(){
+    if(storedScores !==null) {
+        allScores = storedScores;
+    }
+     btnStart.disabled = true;
+    nextQuestions= questions[currentindex]
+      
+
+
+    updateTimer();
+}
+
 function updateTimer() {
     var timeInterval = setInterval(function(){
-        timer.innerText = count
-        count--;
+        timer.innerText = "Timer: " + time;
+        time--;
        }, 1000);
     
 }
+
