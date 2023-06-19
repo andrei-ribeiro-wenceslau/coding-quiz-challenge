@@ -3,7 +3,7 @@ A timed coding quiz with multiple-choice questions app
 
 ## Description
 
-This project is to develop and timed coding quiz game with multiple-choice questions application.
+This project is to develop a timed coding quiz with multiple-choice questions application.
 
 ## Website Screenshot
 ![Website Screenshot](https://github.com/andrei-ribeiro-wenceslau/coding-quiz-challenge/blob/main/assets/images/coding-quiz-challenge-app.png "Website Screenshot")
