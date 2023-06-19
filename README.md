@@ -6,7 +6,7 @@ A timed coding quiz with multiple-choice questions app
 This project is to develop and timed coding quiz game with multiple-choice questions application.
 
 ## Website Screenshot
-![Website Screenshot](https://github.com/andrei-ribeiro-wenceslau/coding-quiz-challenge/assets/images/coding-quiz-challenge-app.png "Website Screenshot")
+![Website Screenshot](https://github.com/andrei-ribeiro-wenceslau/coding-quiz-challenge/blob/main/assets/images/coding-quiz-challenge-app.png "Website Screenshot")
 
 
 
