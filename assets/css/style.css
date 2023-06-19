@@ -1,26 +1,118 @@
-nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px;
-    background-color: #f2f2f2;
-  }
-  
-  nav a {
-    text-decoration: none;
-    color: #000;
-    font-weight: bold;
-  }
-  
-  .container {
-    max-width: 500px;
-    margin: 0 auto;
-    text-align: center;
-    border: 2px solid black;
-    padding: 20px;
-    margin-top: 30px;
-  }
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
 
-  #choices button{
-    margin-left: 15px;
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: #f5f5f5;
+  color: #333;
+  margin: 0;
+  padding: 0;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background-color: #293241;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin: 0 auto;
+  max-width: 520px;
+
+}
+
+nav a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: bold;
+  margin-left: 20px;
+}
+
+.container {
+  max-width: 500px;
+  margin: 0 auto;
+  text-align: center;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  padding: 20px;
+  margin-top: 30px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+h1, h2, p {
+  font-weight: bold;
+  margin: 0;
+}
+
+h1 {
+  font-size: 32px;
+  margin-bottom: 20px;
+  color: #293241;
+}
+
+h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+  color: #293241;
+}
+
+#choices {
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    margin-top: 20px;
   }
+  
+
+#choices button {
+  margin-top: 10px;
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #ee6c4d;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#choices button:hover {
+  background-color: #ba4a1f;
+}
+
+#btnStart {
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-size: 24px;
+  background-color: #ee6c4d;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#btnStart:hover {
+  background-color: #ba4a1f;
+}
+
+#game-over {
+  margin-top: 30px;
+}
+
+#score {
+  font-size: 20px;
+  font-weight: bold;
+  color: #293241;
+}
+
+#initials {
+  margin-top: 10px;
+  padding: 5px;
+  font-size: 16px;
+}
+
+#timer{
+    color: white;
+}
+
+#alert{
+    margin-top: 10px;
+}

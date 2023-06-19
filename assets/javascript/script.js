@@ -1,6 +1,8 @@
+// Get DOM elements
 var quizQuestion = document.getElementById("question");
 var timer = document.getElementById("timer");
 var btnStart = document.getElementById("btnStart");
+var btnScoreEl = document.getElementById("btnScore");
 var timecounter = document.getElementById("timecounter");
 var questionAnswers = document.getElementById("choices");
 var alert = document.getElementById("alert");
@@ -8,6 +10,7 @@ var scoreEl = document.getElementById("score");
 var gameOver = document.getElementById("game-over");
 var subTitle = document.getElementById("subtitle");
 
+// Declare variables
 var nextQuestions 
 var score = 0;
 var time = 75;
@@ -15,7 +18,7 @@ var currentindex = 0;
 var allScores = [];
 var storedScores = JSON.parse(localStorage.getItem("userData"));
 
-
+// Array of questions
 var questions = [
     {
         question: "Commonly used data type Do Not include:",
@@ -44,8 +47,13 @@ var questions = [
     },
 ]
 
+// Declare timeInterval globally
+var timeInterval;
+
+// Event listener for start button
 btnStart.addEventListener("click", startGame);
 
+// Function to start the game
 function startGame(){
 
     subTitle.style.display = "none";
@@ -62,18 +70,39 @@ function startGame(){
     updateTimer();
 }
 
-function updateTimer() {
-    var timeInterval = setInterval(function(){
-        timer.innerText = "Timer: " + time;
-        time--;
-       }, 1000);
+// Event listener for score button
+btnScoreEl.addEventListener("click" , function(){
+    var name = document.getElementById("initials").value
+    scorePage(name, time)
+});
 
-       if (time <= 0) {
+// Function to update the timer
+function updateTimer() {
+    timeInterval = setInterval(function () {
+      timer.innerText = "Timer: " + time;
+      time--;
+      if (time <= 0) {
+        clearInterval(timeInterval); // Stop the timer
         endGame();
       }
-    
+    }, 1000);
+  }
+
+// Function to navigate to score page and store user data
+function scorePage(a, b) {
+
+    var userData = {
+        inits: a,
+        userScore: b
+    };
+    allScores.push(userData);
+
+    localStorage.setItem("userData", JSON.stringify(allScores));
+    location.href = "highscore.html";
 }
 
+
+// Function to display a question and its choices
 function displayQuestion(question){
 
     quizQuestion.innerText=question.question
@@ -87,7 +116,7 @@ function displayQuestion(question){
     });
 }
 
-
+// Function to display the next question
 function displaynextQuestion(e){
 
     currentindex++
@@ -112,15 +141,15 @@ function displaynextQuestion(e){
      
 }
 
+// Function to check the user's answer
 function checkAnswer(response){
     
     if(response){
         alert.innerText= "Correct"
     }else {
-        alert.innerText="Wrong"
+        alert.innerText="Incorrect"
         time = time -15
         timer.innerText = "Timer: " + time;
-        console.log("Incorrect")
 
     }
     setTimeout(function(){
@@ -130,11 +159,14 @@ function checkAnswer(response){
 
 }
 
+// Function to end the game
 function endgame (){
+    clearInterval(timeInterval);
     scoreEl.textContent = time;
 
     gameOver.style.display = "block";
 
+    timer.style.display = "none";
     quizQuestion.style.display = "none";
     questionAnswers.style.display = "none";
 
